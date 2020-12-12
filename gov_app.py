@@ -38,7 +38,7 @@ containers_2 = page_soup_2.findAll('h3',{'class':'uk-panel-title'})
 
 st.markdown('### MOD')
 for container in containers_2:
-	container.a['href'] = 'https://www.mod.gov.my/'+ container.a['href']
+	container.a['href'] = 'https://www.mod.gov.my'+ container.a['href']
 	st.markdown(f""" ###### {container.a}
 		""", unsafe_allow_html = True)
 
