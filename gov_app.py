@@ -1,13 +1,32 @@
 from bs4 import BeautifulSoup as soup
 from urllib.request import Request, urlopen
+import streamlit as st
+
+st.markdown(
+    """
+    <style>
+    .reportview-container {
+        background-image: linear-gradient(#A9A9A9,#C0C0C0,#D3D3D3,#DCDCDC);
+   	 	color: black;
+   	 	font-family: "Oswald"
+
+    }
+ 	</style>
+""",
+    unsafe_allow_html=True,
+)
+
+
+st.markdown("""<style>
+  h1,h2,h3,h4,h5,h6 {font-family: "Oswald"}
+  </style>""", unsafe_allow_html=True)
+
 
 req = Request('http://www.matrade.gov.my/en/97-contents/links-malaysia/343-government-ministries', headers = {'User-Agent': 'Mozilla/5.0'})
 webpage = urlopen(req).read()
 page_soup = soup(webpage, 'html.parser')
 
 containers = page_soup.findAll('div', {'class':'newsitem_text'})[0].findAll('a')
-
-import streamlit as st
 
 st.sidebar.markdown('### Government Ministries')
 
