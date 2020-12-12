@@ -18,10 +18,18 @@ for container in containers:
 	st.sidebar.markdown(f""" ###### {container}
 		""", unsafe_allow_html = True)
 
+from urllib.request import Request, urlopen
+
+req_1 = Request(containers[0]['href'], headers = {'User-Agent': 'Mozilla/5.0'})
+webpage_1 = urlopen(req_1).read()
+page_soup_1 = soup(webpage_1, 'html.parser')
+
+containers_1 = page_soup_1.findAll('div',{'class':'carousel-item'})
 
 
-url_1 = containers[0]['href']
-uClient_1 = uReq(url_1)
-page_html_1 = uClient_1.read()
-uClient_1.close()
-page_soup_1 = soup(page_html_1, 'html.parser')
+st.markdown('### MAFI')
+for container in containers_1[9:]:
+	container.a['href'] = 'https://www.mafi.gov.my/'+ container.a['href']
+	st.markdown(f""" ###### {container.a}
+		""", unsafe_allow_html = True)
+
