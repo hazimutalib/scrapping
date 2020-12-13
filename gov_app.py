@@ -109,8 +109,8 @@ for container in containers_5[:-1]:
 
 st.markdown('### MOHa')
 
-req_6 = Request('https://www.moha.gov.my/index.php/ms/', headers = {'User-Agent': 'XYZ/3.0'})
-webpage_6 = urlopen(req_6,timeout=20).read()
+req_6 = Request('https://www.moha.gov.my/index.php/ms/', headers = {'User-Agent': 'Mozilla/5.0'})
+webpage_6 = urlopen(req_6).read()
 page_soup_6 = soup(webpage_6, 'html.parser')
 
 containers_6 = page_soup_6.findAll('div',{'class':'carian-popular'})[0].findAll('li')
