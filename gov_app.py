@@ -262,3 +262,17 @@ for container in containers_16[1:]:
   container.a['href'] = 'http://www.kbs.gov.my/'+ container.a['href']
   st.markdown(f""" ###### {container.td}
     """, unsafe_allow_html = True)
+
+
+st.markdown('### PMO')
+
+req_17 = Request('https://www.pmo.gov.my/2020/12/kenyataan-media-mengenai-mesyuarat-pertama-majlis-pekerjaan-negara/', headers = {'User-Agent': 'Mozilla/5.0'})
+webpage_17 = urlopen(req_17).read()
+page_soup_17 = soup(webpage_17, 'html.parser')
+
+containers_17 = page_soup_17.findAll('ul',{'class':'similar-posts'})[0].findAll('li')
+
+for container in containers_17:
+  container.a['href'] = 'https://www.pmo.gov.my/'+ container.a['href']
+  st.markdown(f""" ###### {container.a}
+    """, unsafe_allow_html = True)
