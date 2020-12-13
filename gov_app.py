@@ -105,3 +105,17 @@ for container in containers_5[:-1]:
   container.a['href'] = containers[9]['href']+ container.a['href']
   st.markdown(f""" ###### {container.a}
     """, unsafe_allow_html = True)
+
+
+st.markdown('### MOHR')
+
+req_6 = Request('https://www.mohr.gov.my/index.php/ms/', headers = {'User-Agent': 'XYZ/3.0'})
+webpage_6 = urlopen(req_6,timeout=20).read()
+page_soup_6 = soup(webpage_6, 'html.parser')
+
+containers_6 = page_soup_6.findAll('li', {'class':'post'})
+
+for container in containers_6:
+  container.a['href'] = containers[10]['href']+ container.a['href']
+  st.markdown(f""" ###### {container.a}
+    """, unsafe_allow_html = True)
