@@ -149,3 +149,17 @@ for container in containers_8[:-1]:
   container.a['href'] = containers[14]['href']+ container.a['href']
   st.markdown(f""" ###### {container.a}
     """, unsafe_allow_html = True)
+
+
+st.markdown('### RURAL')
+
+req_9 = Request(containers[15]['href'], headers = {'User-Agent': 'Mozilla/5.0'})
+webpage_9 = urlopen(req_9).read()
+page_soup_9 = soup(webpage_9, 'html.parser')
+
+containers_9 = page_soup_9.findAll('div',{'class':'elementor-post__text'})
+
+for container in containers_8[:-1]:
+  container.a['href'] = containers[15]['href']+ container.a['href']
+  st.markdown(f""" ###### {container.a}
+    """, unsafe_allow_html = True)
