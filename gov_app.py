@@ -160,5 +160,5 @@ page_soup_9 = soup(webpage_9, 'html.parser')
 containers_9 = page_soup_9.findAll('h3',{'class':'elementor-post__title'})
 
 for container in containers_9:
-  st.markdown(f""" ###### {container.a}
+  st.markdown(f""" ###### {container}
     """, unsafe_allow_html = True)
