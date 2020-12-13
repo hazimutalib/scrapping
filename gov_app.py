@@ -34,6 +34,7 @@ for container in containers:
 	st.sidebar.markdown(f""" ###### {container}
 		""", unsafe_allow_html = True)
 
+
 req_1 = Request(containers[0]['href'], headers = {'User-Agent': 'Mozilla/5.0'})
 webpage_1 = urlopen(req_1).read()
 page_soup_1 = soup(webpage_1, 'html.parser')
@@ -75,6 +76,8 @@ for container in containers_3:
   st.markdown(f""" ###### {container.a}
     """, unsafe_allow_html = True)
 
+st.markdown('### MFA')
+
 req_4 = Request(containers[7]['href'], headers = {'User-Agent': 'Mozilla/5.0'})
 webpage_4 = urlopen(req_4).read()
 page_soup_4 = soup(webpage_4, 'html.parser')
@@ -82,7 +85,6 @@ page_soup_4 = soup(webpage_4, 'html.parser')
 containers_4 = page_soup_4.findAll('div', {'class':'k2ItemsBlock'})
 
 
-st.markdown('### MFA')
 for container in containers_4:
   container.a['href'] = containers[7]['href']+ container.a['href']
   st.markdown(f""" ###### {container.a}
