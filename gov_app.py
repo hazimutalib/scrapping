@@ -63,5 +63,14 @@ for container in containers_2:
 
 
 
+req_3 = Request(containers[4]['href'], headers = {'User-Agent': 'Mozilla/5.0'})
+webpage_3 = urlopen(req_3).read()
+page_soup_3 = soup(webpage_3, 'html.parser')
 
+containers_3 = page_soup_3.findAll('ul',{'class':'latestnews'})
 
+st.markdown('### MOE')
+for container in containers_3:
+  container.a['href'] = containers[4]['href']+ container.a['href']
+  st.markdown(f""" ###### {container.a}
+    """, unsafe_allow_html = True)
