@@ -162,3 +162,17 @@ containers_9 = page_soup_9.findAll('h3',{'class':'elementor-post__title'})
 for container in containers_9:
   st.markdown(f""" ###### {container}
     """, unsafe_allow_html = True)
+
+
+
+st.markdown('### MOSTI')
+
+req_10 = Request('https://www.mosti.gov.my/web/', headers = {'User-Agent': 'Mozilla/5.0'})
+webpage_10 = urlopen(req_10).read()
+page_soup_10 = soup(webpage_10, 'html.parser')
+
+containers_10 = page_soup_10.findAll('ul',{'class':'display-posts-listing'})[0].findAll('li')
+
+for container in containers_10:
+  st.markdown(f""" ###### {container.a}
+    """, unsafe_allow_html = True)
