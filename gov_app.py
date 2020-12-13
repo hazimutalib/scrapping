@@ -74,3 +74,17 @@ for container in containers_3:
   container.a['href'] = containers[4]['href']+ container.a['href']
   st.markdown(f""" ###### {container.a}
     """, unsafe_allow_html = True)
+
+req_4 = Request(containers[7]['href'], headers = {'User-Agent': 'Mozilla/5.0'})
+webpage_4 = urlopen(req_4).read()
+page_soup_4 = soup(webpage_4, 'html.parser')
+
+containers_4 = page_soup_4.findAll('div', {'class':'k2ItemsBlock'})
+
+
+st.markdown('### MFA')
+for container in containers_4:
+  container.a['href'] = containers[7]['href']+ container.a['href']
+  st.markdown(f""" ###### {container.a}
+    """, unsafe_allow_html = True)
+
