@@ -78,7 +78,7 @@ for container in containers_3:
   st.markdown(f""" ###### {container.a}
     """, unsafe_allow_html = True)
 
-st.markdown('### MFA')
+st.markdown('### MOF')
 
 req_4 = Request(containers[7]['href'], headers = {'User-Agent': 'Mozilla/5.0'})
 webpage_4 = urlopen(req_4).read()
@@ -92,3 +92,16 @@ for container in containers_4:
   st.markdown(f""" ###### {container.a}
     """, unsafe_allow_html = True)
 
+
+st.markdown('### MOH')
+
+req_5 = Request('https://www.moh.gov.my/index.php/pages/view/2573', headers = {'User-Agent': 'Mozilla/5.0'})
+webpage_5 = urlopen(req_5).read()
+page_soup_5 = soup(webpage_5, 'html.parser')
+
+containers_5 = page_soup_5.findAll('div',{'id':'223'})[0].findAll('tr')
+
+for container in containers_5:
+  container.a['href'] = containers[9]['href']+ container.a['href']
+  st.markdown(f""" ###### {container.a}
+    """, unsafe_allow_html = True)
