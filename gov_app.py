@@ -101,7 +101,7 @@ page_soup_5 = soup(webpage_5, 'html.parser')
 
 containers_5 = page_soup_5.findAll('div',{'id':'223'})[0].findAll('tr')
 
-for container in containers_5:
+for container in containers_5[:-1]:
   container.a['href'] = containers[9]['href']+ container.a['href']
   st.markdown(f""" ###### {container.a}
     """, unsafe_allow_html = True)
