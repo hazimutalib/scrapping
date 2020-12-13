@@ -217,8 +217,10 @@ containers_13 = page_soup_13.findAll('div',{'class':'content-assessment-tag-cont
 
 contains_13 = containers_13[0].findAll('td')
 for container in [contains_13[0],contains_13[2]]:
-  container.img['src'] = 'https://www.kpkt.gov.my/'+ container.img['src']
+  if container == contains_13[0]:
+    container.img['src'] = 'https://www.kpkt.gov.my/'+ container.img['src']
   container.a['href'] = 'https://www.kpkt.gov.my/'+ container.a['href']
+  
   st.markdown(f""" ###### {container}
     """, unsafe_allow_html = True)
 
