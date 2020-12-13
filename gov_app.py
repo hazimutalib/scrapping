@@ -215,17 +215,7 @@ page_soup_13 = soup(webpage_13, 'html.parser')
 
 containers_13 = page_soup_13.findAll('div',{'class':'content-assessment-tag-container'})[0].findAll('tr')
 
-contains_13 = containers_13[0].findAll('td')
-for container in [contains_13[0],contains_13[2]]:
-  if container == contains_13[0]:
-    container.img['src'] = 'https://www.kpkt.gov.my/'+ container.img['src']
-  container.a['href'] = 'https://www.kpkt.gov.my/'+ container.a['href']
-  
-  st.markdown(f""" ###### {container}
-    """, unsafe_allow_html = True)
-
-
-for container in containers_13[1:]:
+for container in containers_13:
   container.img['src'] = 'https://www.kpkt.gov.my/'+ container.img['src']
   container.a['href'] = 'https://www.kpkt.gov.my/'+ container.a['href']
   st.markdown(f""" ###### {container}
