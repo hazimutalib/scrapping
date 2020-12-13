@@ -258,7 +258,7 @@ page_soup_16 = soup(webpage_16, 'html.parser')
 
 containers_16 = page_soup_16.findAll('table',{'class':'category table table-striped table-bordered table-hover'})[0].findAll('tr')
 
-for container in containers_16:
+for container in containers_16[1:]:
   container.a['href'] = 'http://www.kbs.gov.my/'+ container.a['href']
-  st.markdown(f""" ###### {container}
+  st.markdown(f""" ###### {container.td}
     """, unsafe_allow_html = True)
