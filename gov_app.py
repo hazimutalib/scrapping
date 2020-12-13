@@ -234,3 +234,17 @@ for container in containers_14:
   container.a['href'] = 'https://www.kpwkm.gov.my/'+ container.a['href']
   st.markdown(f""" ###### {container.a}
     """, unsafe_allow_html = True)
+
+
+st.markdown('### KKR')
+
+req_15 = Request('http://www.kkr.gov.my/ms', headers = {'User-Agent': 'Mozilla/5.0'})
+webpage_15 = urlopen(req_15).read()
+page_soup_15 = soup(webpage_15, 'html.parser')
+
+containers_15 = page_soup_15.findAll('div',{'class':'hsr-hot-topics'})[0].findAll('li')
+
+for container in containers_15:
+  container.a['href'] = 'http://www.kkr.gov.my/'+ container.a['href']
+  st.markdown(f""" ###### {container.a}
+    """, unsafe_allow_html = True)
