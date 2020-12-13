@@ -202,6 +202,6 @@ page_soup_12 = soup(webpage_12, 'html.parser')
 containers_12 = page_soup_12.findAll('div', {'id':'ctl00_ctl50_g_74ad80ce_403e_4d56_a0f2_2e99ef765303'})[0].findAll('li')
 
 for container in containers_12:
-  container.a['href'] = 'https://www.mot.gov.my/en'+ container.a['href']
+  container.a['href'] = 'https://www.mot.gov.my/'+ container.a['href']
   st.markdown(f""" ###### {container.a}
     """, unsafe_allow_html = True)
