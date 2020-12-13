@@ -147,7 +147,7 @@ containers_8 = page_soup_8.findAll('div',{'class':'sprocket-lists'})[0].findAll(
 
 for container in containers_8[:-1]:
   container.a['href'] = containers[14]['href']+ container.a['href']
-  st.markdown(f""" ###### {container.a}
+  st.markdown(f""" ###### {container}
     """, unsafe_allow_html = True)
 
 
