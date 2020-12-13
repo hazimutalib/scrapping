@@ -205,3 +205,17 @@ for container in containers_12:
   container.a['href'] = 'https://www.mot.gov.my/'+ container.a['href']
   st.markdown(f""" ###### {container.a}
     """, unsafe_allow_html = True)
+
+
+st.markdown('### KPKT')
+
+req_13 = Request('https://www.kpkt.gov.my/', headers = {'User-Agent': 'Mozilla/5.0'})
+webpage_13 = urlopen(req_13).read()
+page_soup_13 = soup(webpage_13, 'html.parser')
+
+containers_13 = page_soup_13.findAll('div',{'class':'content-assessment-tag-container'})[0].findAll('tr')
+
+for container in containers_13:
+  container.a['href'] = 'https://www.mot.gov.my/'+ container.a['href']
+  st.markdown(f""" ###### {container.}
+    """, unsafe_allow_html = True)
