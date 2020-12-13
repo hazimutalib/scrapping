@@ -190,3 +190,18 @@ for container in containers_11:
   container.a['href'] = 'http://www.motour.gov.my/'+ container.a['href']
   st.markdown(f""" ###### {container.a}
     """, unsafe_allow_html = True)
+
+
+
+st.markdown('### MOT')
+
+req_12 = Request('https://www.mot.gov.my/en', headers = {'User-Agent': 'Mozilla/5.0'})
+webpage_12 = urlopen(req_12).read()
+page_soup_12 = soup(webpage_12, 'html.parser')
+
+ccontainers_12 = page_soup_12.findAll('div', {'id':'ctl00_ctl50_g_74ad80ce_403e_4d56_a0f2_2e99ef765303'})[0].findAll('li')
+
+for container in containers_12:
+  container.a['href'] = 'https://www.mot.gov.my/en'+ container.a['href']
+  st.markdown(f""" ###### {container.a}
+    """, unsafe_allow_html = True)
