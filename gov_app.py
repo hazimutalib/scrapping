@@ -107,9 +107,9 @@ for container in containers_5[:-1]:
     """, unsafe_allow_html = True)
 
 
-st.markdown('### MOHa')
+st.markdown('### MOHA')
 
-req_6 = Request('https://www.moha.gov.my/index.php/ms/', headers = {'User-Agent': 'Mozilla/5.0'})
+req_6 = Request('https://www.moha.gov.my/index.php/ms/', headers = {'User-Agent': 'XYZ/3.0'})
 webpage_6 = urlopen(req_6).read()
 page_soup_6 = soup(webpage_6, 'html.parser')
 
