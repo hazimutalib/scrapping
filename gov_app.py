@@ -160,6 +160,5 @@ page_soup_9 = soup(webpage_9, 'html.parser')
 containers_9 = page_soup_9.findAll('div',{'class':'elementor-post__text'})
 
 for container in containers_9:
-  container.a['href'] = containers[15]['href']+ container.a['href']
   st.markdown(f""" ###### {container.a}
     """, unsafe_allow_html = True)
