@@ -1,6 +1,8 @@
 from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup as soup
 import streamlit as st
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
 
 
 st.markdown(
